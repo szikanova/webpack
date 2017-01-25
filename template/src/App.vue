@@ -2,9 +2,6 @@
   <div id="app">
     <img src="./assets/logo.png">
     <hello></hello>
-    <p>
-      Welcome to your Vue.js app!
-    </p>
   </div>
 </template>
 
