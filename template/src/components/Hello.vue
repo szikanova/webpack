@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>\Hello World My Name is {{message}} !</h1>
+    <h1>Hello World My Name is {{message}} !</h1>
     <input v-model="message" placeholder="edit me">
   </div>
 </template>
