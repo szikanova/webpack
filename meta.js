@@ -1,4 +1,13 @@
-{
+module.exports = {
+  "helpers": {
+    "if_or": function (v1, v2, options) {
+      if (v1 || v2) {
+        return options.fn(this);
+      }
+
+      return options.inverse(this);
+    }
+  },
   "prompts": {
     "name": {
       "type": "string",
@@ -14,6 +23,22 @@
     "author": {
       "type": "string",
       "message": "Author"
+    },
+    "build": {
+      "type": "list",
+      "message": "Vue build",
+      "choices": [
+        {
+          "name": "Runtime + Compiler: recommended for most users",
+          "value": "standalone",
+          "short": "standalone"
+        },
+        {
+          "name": "Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specific HTML) are ONLY allowed in .vue files - render functions are required elsewhere",
+          "value": "runtime",
+          "short": "runtime"
+        }
+      ]
     },
     "lint": {
       "type": "confirm",
@@ -52,8 +77,10 @@
   },
   "filters": {
     ".eslintrc.js": "lint",
+    ".eslintignore": "lint",
+    "config/test.env.js": "unit || e2e",
     "test/unit/**/*": "unit",
     "test/e2e/**/*": "e2e"
   },
   "completeMessage": "To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
-}
+};
